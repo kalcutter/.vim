@@ -119,7 +119,10 @@ def main():
     sequence = difflib.SequenceMatcher(None, buf, lines)
     for op in reversed(sequence.get_opcodes()):
       if op[0] is not 'equal':
-        vim.current.buffer[op[1]:op[2]] = lines[op[3]:op[4]]
+        if platform.python_version_tuple()[0] == '3':
+          vim.current.buffer[op[1]:op[2]] = lines[op[3]:op[4]]
+        else:
+          vim.current.buffer[op[1]:op[2]] = [ line.encode(encoding) for line in lines[op[3]:op[4]] ]
     if output.get('IncompleteFormat'):
       print('clang-format: incomplete (syntax errors)')
     vim.command('goto %d' % (output['Cursor'] + 1))
