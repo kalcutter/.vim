@@ -8,6 +8,14 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+if !exists("g:os")
+  if has("win64") || has("win32") || has("win16")
+    let g:os = "Windows"
+  else
+    let g:os = substitute(system('uname'), '\n', '', '')
+  endif
+endif
+
 "-----------------------------------------------------------------------------
 " Settings
 "-----------------------------------------------------------------------------
@@ -192,5 +200,12 @@ imap <C-l> <ESC>:tabnext<CR>
 
 map <C-P> :call FormatRange()<cr>
 imap <C-P> <c-o>:call FormatRange()<cr>
+
+if g:os == "Darwin"
+  nmap <C-c> yy:call system("pbcopy", getreg("\""))<CR>
+  nmap <C-x> dd:call system("pbcopy", getreg("\""))<CR>
+  vmap <C-c> y:call system("pbcopy", getreg("\""))<CR>
+  vmap <C-x> d:call system("pbcopy", getreg("\""))<CR>
+endif
 
 runtime local.vim
