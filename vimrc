@@ -198,8 +198,8 @@ map <C-l> :tabnext<CR>
 imap <C-h> <ESC>:tabprevious<CR>
 imap <C-l> <ESC>:tabnext<CR>
 
-map <C-P> :call FormatRange()<cr>
-imap <C-P> <c-o>:call FormatRange()<cr>
+map <C-J> :call FormatRange()<cr>
+imap <C-J> <c-o>:call FormatRange()<cr>
 
 if g:os == "Darwin"
   nmap <C-c> yy:call system("pbcopy", getreg("\""))<CR>
