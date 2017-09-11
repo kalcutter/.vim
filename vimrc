@@ -151,13 +151,14 @@ if !exists(":DiffOrig")
 endif
 
 function! FormatRange() range
+  let l:range = a:firstline . "," . a:lastline
   if &filetype == "python"
-    execute a:firstline . "," . a:lastline . 'call yapf#YAPF()'
+    execute l:range . 'call yapf#YAPF()'
   else
     if has("python3")
-      py3file ~/.vim/bin/clang-format.py
+      execute l:range . 'py3file ~/.vim/bin/clang-format.py'
     elseif has("python")
-      pyfile ~/.vim/bin/clang-format.py
+      execute l:range . 'pyfile ~/.vim/bin/clang-format.py'
     endif
   endif
 endfunction
