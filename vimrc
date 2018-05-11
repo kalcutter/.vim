@@ -150,7 +150,6 @@ if !exists(":DiffOrig")
     \ | wincmd p | diffthis
 endif
 
-let g:rustfmt_command = "rustup run nightly rustfmt"
 function! FormatRange() range
   let l:range = a:firstline . "," . a:lastline
   if &filetype == "python"
