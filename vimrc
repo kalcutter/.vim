@@ -213,4 +213,6 @@ if g:os == "Darwin"
   vmap <C-x> d:call system("pbcopy", getreg("\""))<CR>
 endif
 
+map <C-t> :NERDTreeToggle<CR>
+
 runtime local.vim
