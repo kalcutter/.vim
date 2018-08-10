@@ -152,18 +152,12 @@ endif
 
 function! FormatRange() range
   let l:range = a:firstline . "," . a:lastline
-  if &filetype == "python"
-    execute l:range . 'call yapf#YAPF()'
-  elseif &filetype == "rust"
+  if &filetype == "rust"
     " FIXME(kal): Work around broken :RustFmtRange.
     " execute l:range . 'RustFmtRange'
     execute 'RustFmt'
   else
-    if has("python3")
-      execute l:range . 'py3file ~/.vim/bin/clang-format.py'
-    elseif has("python")
-      execute l:range . 'pyfile ~/.vim/bin/clang-format.py'
-    endif
+    execute l:range . 'FormatLines'
   endif
 endfunction
 
