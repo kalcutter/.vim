@@ -19,6 +19,8 @@ endif
 "-----------------------------------------------------------------------------
 " Settings
 "-----------------------------------------------------------------------------
+set encoding=utf-8
+
 set expandtab
 set shiftwidth=2
 set softtabstop=2
@@ -45,7 +47,6 @@ set undoreload=20000
 
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current windows
-set encoding=utf-8              " Set default encoding to UTF-8
 set autowrite                   " Automatically save before :next, :make etc.
 set autoread                    " Automatically reread changed files without asking me anything
 set laststatus=2
