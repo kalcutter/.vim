@@ -40,6 +40,9 @@
 [submodule "bundle/vim-python-pep8-indent"]
 	path = bundle/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+[submodule "bundle/vim-toml"]
+	path = bundle/vim-toml
+	url = https://github.com/cespare/vim-toml.git
 [submodule "bundle/YouCompleteMe"]
 	path = bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
