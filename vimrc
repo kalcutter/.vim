@@ -2,11 +2,40 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-syntax on
-filetype plugin indent on
+" Specify a directory for plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'airblade/vim-gitgutter'
+Plug 'cespare/vim-toml'
+Plug 'fatih/vim-go'
+Plug 'fatih/vim-nginx'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-maktaba'
+Plug 'kalcutter/vim-gn'
+Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'rust-lang/rust.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'tikhomirov/vim-glsl'
+Plug 'tpope/vim-fugitive'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Vimjas/vim-python-pep8-indent'
+
+" Unmanaged plugins (manually installed and updated)
+Plug '~/.vim/bundle/carto'
+Plug '~/.vim/bundle/llvm'
+Plug '~/.vim/bundle/protobuf'
+
+call plug#end()
 
 if !exists("g:os")
   if has("win64") || has("win32") || has("win16")
