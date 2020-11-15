@@ -19,7 +19,10 @@ Plug 'fatih/vim-go'
 Plug 'fatih/vim-nginx'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-maktaba'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'kalcutter/vim-gn'
+Plug 'mileszs/ack.vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/nerdtree'
@@ -36,6 +39,9 @@ Plug '~/.vim/bundle/llvm'
 Plug '~/.vim/bundle/protobuf'
 
 call plug#end()
+
+let g:ackprg = 'rg --vimgrep --smart-case'
+let g:ack_use_cword_for_empty_search = 1
 
 if !exists("g:os")
   if has("win64") || has("win32") || has("win16")
@@ -195,6 +201,13 @@ endfunction
 " Key mappings
 "-----------------------------------------------------------------------------
 let mapleader = ","
+
+nmap <Leader>; :Buffers<CR>
+nmap <Leader>g :GFiles<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Rg<CR>
+
+nnoremap <Leader>. :Ack!<Space>
 
 " Sort function to a key
 vnoremap <Leader>s :sort<CR>
