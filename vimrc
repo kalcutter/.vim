@@ -36,7 +36,6 @@ Plug 'Vimjas/vim-python-pep8-indent'
 " Unmanaged plugins (manually installed and updated)
 Plug '~/.vim/bundle/carto'
 Plug '~/.vim/bundle/llvm'
-Plug '~/.vim/bundle/protobuf'
 
 call plug#end()
 
@@ -171,11 +170,6 @@ augroup END
 " Enable syntax highlighting for LLVM tablegen files.
 augroup filetype
   au! BufNewFile,BufRead *.td set filetype=tablegen
-augroup END
-
-" Enable syntax highlighting for protobuf files.
-augroup filetype
-  au! BufNewFile,BufRead *.proto set filetype=proto
 augroup END
 
 " Convenient command to see the difference between the current buffer and the
