@@ -212,6 +212,12 @@ nnoremap <Leader>. :Ack!<Space>
 " Sort function to a key
 vnoremap <Leader>s :sort<CR>
 
+" Navigate quickfix list with ease
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> [Q :cfirst<CR>
+nnoremap <silent> ]Q :clast<CR>
+
 " This changes the . command to leave the cursor at the point where it was
 " before editing started.
 nmap . :norm! .`[<CR>
