@@ -212,6 +212,9 @@ nnoremap <Leader>. :Ack!<Space>
 " Sort function to a key
 vnoremap <Leader>s :sort<CR>
 
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
+
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>
 nnoremap <silent> ]q :cnext<CR>
