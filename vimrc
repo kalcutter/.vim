@@ -56,8 +56,8 @@ endif
 set encoding=utf-8
 
 set expandtab
-set shiftwidth=2
-set softtabstop=2
+set shiftwidth=4
+set softtabstop=4
 set smarttab                    " Add and delete spaces in increments of `shiftwidth' for tabs
 
 set backspace=indent,eol,start  " Makes backspace key more powerful.
